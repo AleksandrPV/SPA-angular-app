@@ -12,7 +12,7 @@ COPY package*.json ./
 
 # Install node packages, install serve, build the app, and remove dependencies at the end
 RUN npm install \
-  && npm install -g serve
+&& npm install -g serve
 
 COPY . /app
 RUN npm run build
@@ -21,6 +21,6 @@ RUN npm run build
 FROM nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=build /app/dist/my-angular-app/ /usr/share/nginx/html
+COPY --from=build /app/dist/ticket-sales2022/ /usr/share/nginx/html
 
 EXPOSE 80
